@@ -31,6 +31,7 @@ parsimonious==0.8.1
 pluggy==1.0.0
 protobuf==3.19.4
 py==1.11.0
+git+https://github.com/lbj-the-goat/python-order-utils#egg=py-order-utils
 py-order-utils>=0.3.0
 pycryptodome==3.14.0
 pyparsing==3.0.7
