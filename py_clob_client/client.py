@@ -483,7 +483,7 @@ class ClobClient:
         raw_obs = get("{}{}?token_id={}".format(self.host, GET_ORDER_BOOK, token_id))
         return parse_raw_orderbook_summary(raw_obs)
 
-    def get_order_books(self, params: list[BookParams], proxies: dict | None = None) -> list[OrderBookSummary]:
+    def get_order_books(self, params: list[BookParams], proxies = None) -> list[OrderBookSummary]:
         """
         Fetches the orderbook for a set of token ids
         """
