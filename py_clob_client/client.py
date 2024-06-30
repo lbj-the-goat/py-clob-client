@@ -683,7 +683,7 @@ class ClobClient:
         """
         Get a market by condition_id
         """
-        return get("{}{}{}".format(self.host, GET_MARKET, condition_id, proxies))
+        return get("{}{}{}".format(self.host, GET_MARKET, condition_id), proxies=proxies)
 
     def get_market_trades_events(self, condition_id):
         """
