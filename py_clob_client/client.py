@@ -401,7 +401,7 @@ class ClobClient:
         ord = self.create_order(order_args, options)
         return self.post_order(ord)
 
-    def cancel(self, order_id):
+    def cancel(self, order_id, proxies=None):
         """
         Cancels an order
         Level 2 Auth required
@@ -411,9 +411,9 @@ class ClobClient:
 
         request_args = RequestArgs(method="DELETE", request_path=CANCEL, body=body)
         headers = create_level_2_headers(self.signer, self.creds, request_args)
-        return delete("{}{}".format(self.host, CANCEL), headers=headers, data=body)
+        return delete("{}{}".format(self.host, CANCEL), headers=headers, data=body, proxies=proxies)
 
-    def cancel_orders(self, order_ids):
+    def cancel_orders(self, order_ids, proxies=None):
         """
         Cancels orders
         Level 2 Auth required
@@ -426,10 +426,10 @@ class ClobClient:
         )
         headers = create_level_2_headers(self.signer, self.creds, request_args)
         return delete(
-            "{}{}".format(self.host, CANCEL_ORDERS), headers=headers, data=body
+            "{}{}".format(self.host, CANCEL_ORDERS), headers=headers, data=body, proxies=proxies
         )
 
-    def cancel_all(self):
+    def cancel_all(self, proxies=None):
         """
         Cancels all available orders for the user
         Level 2 Auth required
@@ -437,7 +437,7 @@ class ClobClient:
         self.assert_level_2_auth()
         request_args = RequestArgs(method="DELETE", request_path=CANCEL_ALL)
         headers = create_level_2_headers(self.signer, self.creds, request_args)
-        return delete("{}{}".format(self.host, CANCEL_ALL), headers=headers)
+        return delete("{}{}".format(self.host, CANCEL_ALL), headers=headers, proxies=proxies)
 
     def cancel_market_orders(self, market: str = None, asset_id: str = None):
         """

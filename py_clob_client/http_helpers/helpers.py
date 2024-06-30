@@ -53,8 +53,8 @@ def get(endpoint, headers=None, data=None, proxies=None):
     return request(endpoint, GET, headers, data, proxies)
 
 
-def delete(endpoint, headers=None, data=None):
-    return request(endpoint, DELETE, headers, data)
+def delete(endpoint, headers=None, data=None, proxies=None):
+    return request(endpoint, DELETE, headers, data, proxies)
 
 
 def build_query_params(url: str, param: str, val: str) -> str:
