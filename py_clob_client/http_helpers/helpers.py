@@ -49,8 +49,8 @@ def post(endpoint, headers=None, data=None, proxies=None):
     return request(endpoint, POST, headers, data, proxies)
 
 
-def get(endpoint, headers=None, data=None):
-    return request(endpoint, GET, headers, data)
+def get(endpoint, headers=None, data=None, proxies=None):
+    return request(endpoint, GET, headers, data, proxies)
 
 
 def delete(endpoint, headers=None, data=None):
